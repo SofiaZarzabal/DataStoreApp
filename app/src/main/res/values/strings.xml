@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">DataStoreApp</string>
+    <string name="txt_shared_preferences_title">Shared Preferences</string>
+    <string name="txt_preferences_data_store_title">Preferences DataStore</string>
+    <string name="txt_proto_data_store_title">Proto DataStore</string>
+    <string name="txt_btn_save">Save Info</string>
+    <string name="txt_btn_load">Load Info</string>
+    <string name="til_name_text_hint">Name</string>
+    <string name="txt_show_info">Saved information: %1$s</string>
 </resources>

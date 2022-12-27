@@ -1,11 +1,12 @@
 package com.example.datastoreapp.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.datastoreapp.activity.InfoManagerActivity.Companion.STORE_TYPE
 import com.example.datastoreapp.databinding.ActivityMainBinding
 import com.example.datastoreapp.viewmodel.MainViewModel
-import com.example.datastoreapp.viewmodel.MainViewModel.*
-import com.example.datastoreapp.viewmodel.MainViewModel.MainStates.*
+import com.example.datastoreapp.viewmodel.MainViewModel.MainData
 import com.example.datastoreapp.viewmodel.StoreType
 
 class MainActivity : AppCompatActivity() {
@@ -16,17 +17,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         viewModel = MainViewModel()
         viewModel.getValue().observe({ lifecycle }, ::updateUI)
         setListeners()
     }
 
     private fun updateUI(data: MainData) {
-        when (data.state) {
-            GO_TO_SHARED_PREFERENCES_VIEW -> {} //start Activity() to shared preferences
-            GO_TO_PROTO_DATASTORE_VIEW -> TODO() //start Activity() to proto datastore
-            GO_TO_PREFERENCES_DATASTORE_VIEW -> TODO() //start Activity() to preferences datastore
-        }
+        this.startActivity(Intent(this, InfoManagerActivity::class.java).apply {
+            putExtra(STORE_TYPE, data.state)
+        })
     }
 
     private fun setListeners() = with(binding) {

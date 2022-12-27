@@ -10,7 +10,7 @@ enum class StoreType {
     PREFERENCES_DATASTORE
 }
 
-class MainViewModel() : ViewModel() {
+class MainViewModel : ViewModel() {
 
     private val mutableLiveData: MutableLiveData<MainData> = MutableLiveData()
     fun getValue(): LiveData<MainData> {
