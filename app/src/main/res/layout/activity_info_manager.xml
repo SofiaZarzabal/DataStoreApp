@@ -4,49 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_name"
-        android:layout_width="match_parent"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout_storage_types"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/size_info_activity_manager_margin_horizontal"
-        android:layout_marginTop="@dimen/size_info_activity_manager_margin_top"
-        android:hint="@string/til_name_text_hint"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tiet_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:id="@+id/btn_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/size_info_activity_manager_margin_top"
-        android:text="@string/txt_btn_save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/til_name" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_load"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/size_info_activity_manager_margin_top"
-        android:text="@string/txt_btn_load"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager_storage_types"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_save" />
-
-    <TextView
-        android:id="@+id/tv_show_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/size_info_activity_manager_margin_horizontal"
-        android:layout_marginTop="@dimen/size_info_activity_manager_margin_top"
-        android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/btn_load" />
+        app:layout_constraintTop_toBottomOf="@id/tab_layout_storage_types"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
