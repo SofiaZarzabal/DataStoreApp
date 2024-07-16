@@ -15,7 +15,8 @@ class PreferencesDataStore(private val context: Context) {
     private val dataStore = context.dataStore
     private val pdsAge = intPreferencesKey(PDS_AGE_KEY)
 
-    fun getAge(): Flow<Int> = context.dataStore.data.map { preferences -> preferences[pdsAge] ?: -1 }
+    fun getAge(): Flow<Int> =
+        context.dataStore.data.map { preferences -> preferences[pdsAge] ?: MINUS_ONE }
 
     suspend fun setAge(age: Int) {
         dataStore.edit { preferences -> preferences[pdsAge] = age }
@@ -24,5 +25,6 @@ class PreferencesDataStore(private val context: Context) {
     companion object {
         private const val PDS_NAME = "PDSStore"
         private const val PDS_AGE_KEY = "PDS_AGE_KEY"
+        private const val MINUS_ONE = -1
     }
 }

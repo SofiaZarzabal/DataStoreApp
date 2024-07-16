@@ -16,7 +16,7 @@ class PreferencesDataStoreViewModel(private val preferencesDataStoreStorage: Pre
         get() = mutableLiveData
 
     fun saveInfoPressed(ageInput: String) {
-        val age = if (ageInput.isEmpty()) -1 else ageInput.toInt()
+        val age = if (ageInput.isEmpty()) MINUS_ONE else ageInput.toInt()
         viewModelScope.launch(Dispatchers.IO) {
             preferencesDataStoreStorage.setAge(age)
         }
@@ -28,5 +28,9 @@ class PreferencesDataStoreViewModel(private val preferencesDataStoreStorage: Pre
                 mutableLiveData.postValue(it)
             }
         }
+    }
+
+    companion object{
+        const val MINUS_ONE = -1
     }
 }
